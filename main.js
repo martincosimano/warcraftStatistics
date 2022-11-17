@@ -1,4 +1,5 @@
 document.querySelector('button').addEventListener('click', getFetch)
+let totalScore = 0
 
 function getFetch(){
   const characterName = document.querySelector('input').value.toLowerCase()
@@ -9,6 +10,10 @@ function getFetch(){
 .then(res => res.json()) // parse response as JSON
 .then(data => {
   console.log(data)
+  for(let i = 0;i < data.length - 1;i++){
+    console.log(data[i].encounterName,data[i].percentile)
+    totalScore += Number(data[i].percentile) / (data.length -1)
+  }
 })
 .catch(err => {
     console.log(`error ${err}`)
