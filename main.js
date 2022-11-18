@@ -1,12 +1,13 @@
 document.querySelector('button').addEventListener('click', getFetch)
-let totalScore = 0
 
 function getFetch(){
+  let totalScore = 0
   const characterName = document.querySelector('#nameInput').value.toLowerCase()
   const realmName = document.querySelector('#realmInput').value.toLowerCase()
   let role = document.querySelector('#roleInput').value
   role = role.replace(/^./, role[0].toUpperCase())
   const raidSize = document.querySelector('#raidSizeInput').value
+  let h2 = document.querySelector('h2')
 
   const url = ` https://classic.warcraftlogs.com:443/v1/rankings/character/${characterName}/${realmName}/us?api_key=94202797bf3c372e7d0f0dbc0b70996e`
 
@@ -19,7 +20,13 @@ function getFetch(){
       totalScore += (Math.ceil(data[i].percentile) / 16)
     }
   }
-  console.log(`${characterName.replace(/^./, characterName[0].toUpperCase())} score is ${Math.round(totalScore)}`)
+  if(totalScore !== 0){
+    console.log(`${characterName.replace(/^./, characterName[0].toUpperCase())} score is ${Math.round(totalScore)}`)
+    h2.innerText = `${characterName.replace(/^./, characterName[0].toUpperCase())} score is ${Math.round(totalScore)}`
+  }else{
+    console.log(`${characterName.replace(/^./, characterName[0].toUpperCase())} has no score`)
+    h2.innerText = `${characterName.replace(/^./, characterName[0].toUpperCase())} has no score`
+  }
 })
 .catch(err => {
     console.log(`error ${err}`)
