@@ -23,9 +23,21 @@ function getFetch(){
   if(totalScore !== 0){
     console.log(`${characterName.replace(/^./, characterName[0].toUpperCase())} score is ${Math.round(totalScore)}`)
     h2.innerText = `${characterName.replace(/^./, characterName[0].toUpperCase())} score is ${Math.round(totalScore)}`
+    if(totalScore <= 20){
+      document.querySelector('h2').style.color = "gray"
+    }else if(totalScore <= 50){
+      document.querySelector('h2').style.color = "green"
+    }else if(totalScore <= 80){
+      document.querySelector('h2').style.color = "#0070FF"
+    }else if(totalScore <= 95){
+      document.querySelector('h2').style.color = "#4B27EE"
+    }else if(totalScore <= 100){
+      document.querySelector('h2').style.color = "orange"
+    }
   }else{
     console.log(`${characterName.replace(/^./, characterName[0].toUpperCase())} has no score`)
     h2.innerText = `${characterName.replace(/^./, characterName[0].toUpperCase())} has no score`
+    document.querySelector('h2').style.color = "white"
   }
 })
 .catch(err => {
