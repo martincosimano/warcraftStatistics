@@ -1,0 +1,13 @@
+body {
+    background-image: url("background.png");
+}
+
+h1,
+h2{
+    color: white;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+}
