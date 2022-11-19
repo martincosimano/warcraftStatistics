@@ -1,5 +1,28 @@
-body {
+/******************************************
+/* CSS
+/*******************************************/
+
+/* Box Model Hack */
+*{
+    box-sizing: border-box;
+  }
+
+body, html {
+    height: 100%;
+}
+
+div,
+main,
+body{
+    margin: 0;
+}
+
+main {
     background-image: url("background.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
 }
 
 h1,
@@ -10,4 +33,6 @@ h2{
 .container {
     display: flex;
     justify-content: center;
+    margin-inline: auto;
+    width: min(90%, 70.5rem);
 }
